@@ -97,6 +97,4 @@
   ansible.builtin.file:
     path: "{{ vector_workdir }}"
     state: absent
-tags: vector
-
 
