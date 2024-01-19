@@ -1,31 +1,22 @@
 Vector
 =========
 
-This role can install vector
+This role can install vector:
 
-vector_version: "0.21.1"
-vector_os_arh: "x86_64"
-vector_workdir: "/tmp/vector"
-vector_os_user: "vector"
-vector_os_group: "vector"
-vector_data_dir: "/var/lib/vector"
+установка Vector из архива
+первичная конфигурация Vector с конфигурацией по генерации событий syslog и отправка данных в Clickhouse
+создание пользователя ОС для Vector
 
 Role Variables
 --------------
 |vars|description|
-|--|--|
 |vector_version| версия vector |
-|--|--|
-|vector_os_arh| для какой архитектуры дистрибутива |
-|--|--|
+|vector_os_arh| для какой архитектуры дистрибутив |
 |vector_workdir| рабочая папка |
-|--|--|
 |vector_os_user| имя пользователя |
-|--|--|
 |vector_os_group| группа |
-|--|--|
 |vector_data_dir| data folder |
-|--|--|
+
 
 Dependencies
 ------------
@@ -34,10 +25,14 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 
 Example Playbook
 ----------------
-
-    - hosts: servers
-      roles:
-         - { role: vector }
+```yaml
+- name: Install Vector
+  hosts: vector
+  gather_facts: false
+  roles:
+    - role: vector-role
+      tags: vector
+``` 
 
 License
 -------
